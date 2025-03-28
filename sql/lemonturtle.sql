@@ -53,6 +53,16 @@ CREATE TABLE IF NOT EXISTS ipMap (
 );
 
 
+CREATE TABLE IF NOT EXISTS website (
+    websiteID integer primary key autoincrement,
+    url text not null,
+    name text,
+    category text not null,
+    addedBy integer,
+    description blob default null CHECK (length(description) <= 255),
+    foreign key (addedBy) references person(userID) on update cascade on delete set null
+);
+
 -- **************************************************************************************
 -- DEMO DATA
 
