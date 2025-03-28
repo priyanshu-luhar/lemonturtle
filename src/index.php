@@ -1,9 +1,8 @@
 <?php
     require_once("config.php");
     require_once("nav.php");
-
-
 ?>
+
 <html>
     <body style="font-family: monospace; font-size: 150%; color: white; background-color:black;">
         <h1>URL</h1>
