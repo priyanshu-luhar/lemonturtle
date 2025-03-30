@@ -3,8 +3,7 @@
 
 function makeTable($data, $showHeader = true) {
     $tableStr = "";
-
-    $tableStr .= "<table style=\"width:100%;  font-size:16px;\">";
+    $tableStr .= "<table style=\"width:100%; font-size:16px;\">";
 
     foreach($data as $row) {
         if ($showHeader) {
@@ -25,6 +24,11 @@ function makeTable($data, $showHeader = true) {
     $tableStr .= "</table>";
 
     return $tableStr;
+}
+
+function isJson($string) {
+   json_decode($string);
+   return json_last_error() === JSON_ERROR_NONE;
 }
 
 ?>
