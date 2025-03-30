@@ -43,11 +43,33 @@
         }
 
         echo makeTable($api);
+    } else {
+        $k = "";
+
+        $query = "SELECT name, url, category, description FROM website WHERE ";
+        $query .= "name LIKE \"%" .$k ."%\" OR ";
+        $query .= "category LIKE \"%" .$k ."%\" OR ";
+        $query .= "description LIKE \"%" .$k ."%\";";
+        
+        $search = $db->prepare($query);
+        $r = $search->execute();
+
+        $le = $db->lastErrorMsg();
+        if (strlen($le) > 0 && $le !== "not an error") {
+            echo "<br>$le<br>";
+        }
+
+        $api = [];
+        while($g = $r->fetchArray(SQLITE3_ASSOC)) {
+            $api []= $g;
+        }
+
+        echo makeTable($api);
     }
 ?>
-        <a href="index.php" style="text-decoration:none;">
-        <img src= "../img/lemonturtle.png" alt="Logo" width="339" height="150">
-        </a>
-
     </body>
 </html>
+
+<?php
+    require_once("footer.php");
+?>
