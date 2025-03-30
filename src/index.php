@@ -24,7 +24,7 @@
         
         $url = $_POST['url'];
     } else {
-        $url = "https://geek-jokes.sameerkumar.website/api?format=json";
+        $url = "https://v2.jokeapi.dev/joke/Any?format=txt";
 
     }
     $curl = curl_init();
