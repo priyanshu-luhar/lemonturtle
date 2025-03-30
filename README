@@ -7,3 +7,5 @@ LemonTurtle:
 - cURL / REST / HTTP(S)
 - Request Headers with AUTH Tokens
 - json Pretty Print
+- search through an API database to find
+  API for your use
