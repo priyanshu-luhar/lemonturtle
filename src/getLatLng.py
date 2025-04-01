@@ -15,11 +15,11 @@ def getCitybyIP(ip):
         response = requests.get(f"http://ip-api.com/json/{ip}")
         data = response.json()
         if data['status'] == 'success':
-            #lat = data['lat']
-            #lng = data['lon']
+            lat = data['lat']
+            lng = data['lon']
             city = data['city'] + ", " + data['country']
 
-            return city
+            return [lat, lng]
         else:
             return f"Lookup failed: {data['message']}"
     except Exception as e:
@@ -44,6 +44,5 @@ else:
     city = getCitybyIP(ip)
     myip = getIPbyHost()
     mycity = getCitybyIP(myip)
-    print("Request in: ", city, "[",ip,"]")
-    print("<br>You are here: ", mycity, "[",myip,"]")
+    print(city, "*", mycity)
 

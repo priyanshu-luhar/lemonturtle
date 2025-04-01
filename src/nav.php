@@ -26,7 +26,7 @@ if (!isset($_SESSION['userID'])) {
         <td align="left" valign="center">
         <a href="signup.php" style="color: #000000; text-decoration:none;"><h1>SIGN-UP</h1></a>
         </td>
-        <td align="right" valign="center" style="width:60%;">
+        <td align="right" valign="center" style="width:50%;">
         <a href="profile.php" style="color: #000000; text-decoration:none;"><h1>My Profile</h1></a>
         </td>
         ';

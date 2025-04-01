@@ -37,6 +37,7 @@
     curl_close($curl);
 
     if (isJson($output)) {
+        echo 'Output type: json<br>';
         $output = json_encode(json_decode($output), JSON_PRETTY_PRINT);
     }
 
