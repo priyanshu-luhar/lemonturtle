@@ -20,11 +20,17 @@
         </form>
         <h1>Response</h1>
 <?php
-    if (isset($_POST['request'])) {
-        
+    if (isset($_POST['request'])) {   
         $url = $_POST['url'];
+        if (isset($_SESSION['userID'])) {
+            $insert = $db->prepare('insert into api (userID, url) values (:uid, :url)');
+            $insert->bindValue(":uid", $_SESSION['userID'], SQLITE3_TEXT);
+            $insert->bindValue(":url", $url, SQLITE3_TEXT);
+
+            $insert->execute();
+        }
     } else {
-        $url = "https://v2.jokeapi.dev/joke/Any?format=txt";
+        $url = "https://v2.jokeapi.dev/joke/Programming?format=txt";
 
     }
     $curl = curl_init();
